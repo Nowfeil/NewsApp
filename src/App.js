@@ -9,7 +9,7 @@ const router = createBrowserRouter([
   {
     path:'/general',
     element:<div className='container'><h1 className='font-monospace text-center'>General News</h1><News   pageSize={page} category='general'/></div>,
-    basename: "/app"
+    basename: "/MyNews"
   },
   {
     path:'/sports',
