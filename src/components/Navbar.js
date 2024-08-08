@@ -1,33 +1,33 @@
 import React from 'react'
-
-const Navbar =()=> {
+import { Link } from 'react-router-dom'
+import './styles.css';
+const Navbar =(props)=> {
+  const images=[
+    'https://cdn-icons-png.flaticon.com/128/11457/11457488.png',
+    'https://cdn-icons-png.flaticon.com/128/7645/7645197.png'
+  ]
     return (
-        <nav className="navbar navbar-expand-lg bg-body-dark text-bg-warning">
+        <nav className={`navbar fixed-top navbar-expand-lg bg-body-dark navbar-${props.theme} text-bg-${props.theme}`}>
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">Navbar</a>
+          <Link className="navbar-brand" to="/">News App</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item"><a className="nav-link active" aria-current="page" href="/">Home</a></li>
-                    <li className="nav-item"><a className="nav-link active" aria-current="page" href="/about">About</a> </li>
-                    <li className="nav-item dropdown">
-                      <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
-                      <ul className="dropdown-menu">
-                      <li className="nav-item"><a className="nav-link active" aria-current="page" href="/general">General</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/buisness">Buisness</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/sports">Sports</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/games">Games</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/health">Health</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/science">Science</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/technology">Technology</a></li>
-                          <li className="nav-item"><a className="nav-link active" aria-current="page" href="/entertainment">Entertainment</a></li>
-                      </ul>
-                   </li>
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/">Home</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/about">About</Link> </li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/buisness">Buisness</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/sports">Sports</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/games">Games</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/health">Health</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/science">Science</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/technology">Technology</Link></li>
+                    <li className="nav-item"><Link className="nav-link active" aria-current="page" to="/entertainment">Entertainment</Link></li>
             </ul>
           </div>
         </div>
+        <button type="button" onClick={props.mode} className="btn"><img src={props.theme==='dark'?images[0]:images[1]} className="img-fluid" alt="..." width={'25px'} height={'25px'}/></button>
       </nav>
     )
 }
